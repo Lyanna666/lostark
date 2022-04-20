@@ -1,0 +1,16 @@
+header {
+  background-color: black;
+  border: 2px solid pink;
+}
+
+header .contenedor {
+  display: flex;
+  justify-content: space-between;
+
+  color: #141312;
+}
+
+.contenedor picture {
+  padding: 15px;
+  width: 15%;
+}

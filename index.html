@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Lostark</title>
+  </head>
+  <body>
+    <header>
+      <div class="contenedor">
+        <picture>
+          <source
+            media="(max-width: 780px)"
+            srcset="./resources/logo-small.png"
+          />
+          <img src="./resources/logo-big.png" alt="Logo de Lostark" />
+        </picture>
+      </div>
+    </header>
+    <main>
+      <div class="fondo"></div>
+      <div class="contenedor">
+        <section class="registro-login">
+          <div class="login">
+            <h2>Login</h2>
+            <form action="https://formspree.io/f/xvolwyjy" method="POST">
+              <div>
+                <label for="email">Email:</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  placeholder="Escriba su email"
+                />
+              </div>
+              <div>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" />
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

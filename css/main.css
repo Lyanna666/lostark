@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --mainColor: #1a1a1a;
+}
+
+body {
+  background-color: black;
+}
+
+.fondo {
+  background-image: url(../resources/smoke-center-SM.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.9;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+picture {
+  display: block;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.contenedor {
+  max-width: 1800px;
+  margin: auto;
+  border: 3px dotted red;
+}
