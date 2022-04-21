@@ -1,8 +1,11 @@
-.section-clases {
+.section-clases > div {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 10px;
+  margin-top: 0;
+  background-color: rgba(0, 0, 0, 0.499);
+  box-shadow: rgb(0, 0, 0) 0px 0px 10px 0px;
 }
 
 /* Títilos */
@@ -25,7 +28,24 @@
   margin: 20px;
 }
 
-/* Layout */
+/* Layout mis personajes */
+.div-mis-personajes {
+  width: 20%;
+  text-align: center;
+}
+
+.div-mis-personajes h3 {
+  width: 100%;
+}
+
+.div-personajes {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Layout clases */
 
 .div-clases {
   width: 80%;
@@ -34,8 +54,6 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.499);
-  box-shadow: black 0px 0px 10px 0px;
 }
 
 .div-clases div {
@@ -124,6 +142,7 @@
   background-color: rgba(0, 0, 0, 0.757);
   box-shadow: black 0px 0px 10px 0px;
   z-index: 1;
+  cursor: pointer;
 }
 
 .div-clases > div:hover .div-clase-informacion {

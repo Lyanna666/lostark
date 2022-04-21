@@ -37,223 +37,265 @@
       <div class="contenedor">
         <section class="section-clases">
           <h2>PERSONAJES</h2>
-          <div class="div-personajes"></div>
           <div>
-            <h3>MIS PERSONAJES</h3>
             <div class="div-mis-personajes">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-          </div>
-
-          <div class="div-nuevo-personaje">
-            <div>
-              <div class="div-nuevo-personaje-superior">
-                <h3>NUEVO PERSONAJE</h3>
-                <button type="button" class="btn-cerrar">X</button>
-              </div>
-              <div class="div-nuevo-personaje-centro">
-                <p>Clase selecionada: <span>BERSERKER</span></p>
-                <form method="">
-                  <label for="nombre">Nombre del nuevo personaje:</label>
-                  <input
-                    type="text"
-                    id="nombre"
-                    placeholder="Nombre de tu nuevo personaje"
-                  />
-                  <button type="submit">Crear personaje</button>
-                </form>
+              <h3>MIS PERSONAJES</h3>
+              <div class="div-personajes">
+                <ul>
+                  <li>
+                    <div>
+                      <p>Nombre del personaje</p>
+                      <button>Eliminar peronaje</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p>Nombre del personaje</p>
+                      <button>Eliminar peronaje</button>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <p>Nombre del personaje</p>
+                      <button>Eliminar peronaje</button>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
-          </div>
 
-          <div class="div-clases">
-            <h3>NUEVO PERSONAJE</h3>
+            <div class="div-nuevo-personaje" id="nuevo-personaje">
+              <div id="nuevo-personaje-background">
+                <div class="div-nuevo-personaje-superior">
+                  <h3>NUEVO PERSONAJE</h3>
+                  <button type="button" id="cerrar" class="btn-cerrar">
+                    X
+                  </button>
+                </div>
+                <div class="div-nuevo-personaje-centro">
+                  <p>
+                    Clase selecionada:
+                    <span id="clase-selecionada">BERSERKER</span>
+                  </p>
+                  <form method="">
+                    <label for="nombre">Nombre del nuevo personaje:</label>
+                    <input
+                      type="text"
+                      id="nombre"
+                      placeholder="Nombre de tu nuevo personaje"
+                    />
+                    <button type="submit" id="crear-personaje">
+                      Crear personaje
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
 
-            <div class="div-guerrero">
-              <picture>
-                <img src="./resources/Clases/BERSERKER.jpeg" />
-              </picture>
-              <div class="div-clase-informacion">
+            <div class="div-clases">
+              <h3>NUEVO PERSONAJE</h3>
+
+              <div class="div-guerrero" id="BERSERKER">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Warrior.webp" />
+                  <img src="./resources/Clases/BERSERKER.jpeg" />
                 </picture>
-                <h4>BERSERKER</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img src="./resources/Clases/ClassIcon-Warrior.webp" />
+                  </picture>
+                  <h4>BERSERKER</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-guerrero">
-              <picture> <img src="./resources/Clases/WARLORD.jpeg" /> </picture>
-              <div class="div-clase-informacion">
+              <div class="div-guerrero" id="WARLORD">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Warrior.webp" />
+                  <img src="./resources/Clases/WARLORD.jpeg" />
                 </picture>
-                <h4>ARTILLERO DE LANZA</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img src="./resources/Clases/ClassIcon-Warrior.webp" />
+                  </picture>
+                  <h4>ARTILLERO DE LANZA</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-guerrero">
-              <picture>
-                <img src="./resources/Clases/HOLY_KNIGHT.jpeg" />
-              </picture>
-              <div class="div-clase-informacion">
+              <div class="div-guerrero" id="HOLY_KNIGHT">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Warrior.webp" />
+                  <img src="./resources/Clases/HOLY_KNIGHT.jpeg" />
                 </picture>
-                <h4>PALADÍN</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img src="./resources/Clases/ClassIcon-Warrior.webp" />
+                  </picture>
+                  <h4>PALADÍN</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-artista">
-              <picture> <img src="./resources/Clases/STRIKER.jpeg" /> </picture>
-              <div class="div-clase-informacion">
+              <div class="div-artista" id="STRIKER">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Martial_Artist.webp" />
+                  <img src="./resources/Clases/STRIKER.jpeg" />
                 </picture>
-                <h4>STRIKER</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img
+                      src="./resources/Clases/ClassIcon-Martial_Artist.webp"
+                    />
+                  </picture>
+                  <h4>STRIKER</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-artista">
-              <picture>
-                <img src="./resources/Clases/WARDANCER.jpeg" />
-              </picture>
-              <div class="div-clase-informacion">
+              <div class="div-artista" id="WARDANCER">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Martial_Artist.webp" />
+                  <img src="./resources/Clases/WARDANCER.jpeg" />
                 </picture>
-                <h4>BAILARINA GUERRERA</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img
+                      src="./resources/Clases/ClassIcon-Martial_Artist.webp"
+                    />
+                  </picture>
+                  <h4>BAILARINA GUERRERA</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-artista">
-              <picture>
-                <img src="./resources/Clases/SCRAPPER.jpeg" />
-              </picture>
-              <div class="div-clase-informacion">
+              <div class="div-artista" id="SCRAPPER">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Martial_Artist.webp" />
+                  <img src="./resources/Clases/SCRAPPER.jpeg" />
                 </picture>
-                <h4>MATONA</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img
+                      src="./resources/Clases/ClassIcon-Martial_Artist.webp"
+                    />
+                  </picture>
+                  <h4>MATONA</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-artista">
-              <picture>
-                <img src="./resources/Clases/SOULFIST.jpeg" />
-              </picture>
-              <div class="div-clase-informacion">
+              <div class="div-artista" id="SOULFIST">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Martial_Artist.webp" />
+                  <img src="./resources/Clases/SOULFIST.jpeg" />
                 </picture>
-                <h4>PUÑO ESPIRITUAL</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img
+                      src="./resources/Clases/ClassIcon-Martial_Artist.webp"
+                    />
+                  </picture>
+                  <h4>PUÑO ESPIRITUAL</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-artista">
-              <picture>
-                <img src="./resources/Clases/GLAIVIER.jpeg" />
-              </picture>
-              <div class="div-clase-informacion">
+              <div class="div-artista" id="GLAIVIER">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Martial_Artist.webp" />
+                  <img src="./resources/Clases/GLAIVIER.jpeg" />
                 </picture>
-                <h4>GUJERA</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img
+                      src="./resources/Clases/ClassIcon-Martial_Artist.webp"
+                    />
+                  </picture>
+                  <h4>GUJERA</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-artillero">
-              <picture>
-                <img src="./resources/Clases/GUNSLINGER.jpeg" />
-              </picture>
-              <div class="div-clase-informacion">
+              <div class="div-artillero" id="GUNSLINGER">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Gunner.webp" />
+                  <img src="./resources/Clases/GUNSLINGER.jpeg" />
                 </picture>
-                <h4>PISTOLERO</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img src="./resources/Clases/ClassIcon-Gunner.webp" />
+                  </picture>
+                  <h4>PISTOLERO</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-artillero">
-              <picture>
-                <img src="./resources/Clases/ARTILLERIST.jpeg" />
-              </picture>
-              <div class="div-clase-informacion">
+              <div class="div-artillero" id="ARTILLERIST">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Gunner.webp" />
+                  <img src="./resources/Clases/ARTILLERIST.jpeg" />
                 </picture>
-                <h4>ARTIFICIERO</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img src="./resources/Clases/ClassIcon-Gunner.webp" />
+                  </picture>
+                  <h4>ARTIFICIERO</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-artillero">
-              <picture> <img src="./resources/Clases/DEADEYE.jpeg" /> </picture>
-              <div class="div-clase-informacion">
+              <div class="div-artillero" id="DEADEYE">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Gunner.webp" />
+                  <img src="./resources/Clases/DEADEYE.jpeg" />
                 </picture>
-                <h4>CAZADEMONIOS</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img src="./resources/Clases/ClassIcon-Gunner.webp" />
+                  </picture>
+                  <h4>CAZADEMONIOS</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-artillero">
-              <picture>
-                <img src="./resources/Clases/SHARPSHOOTER.jpeg" />
-              </picture>
-              <div class="div-clase-informacion">
+              <div class="div-artillero" id="SHARPSHOOTER">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Gunner.webp" />
+                  <img src="./resources/Clases/SHARPSHOOTER.jpeg" />
                 </picture>
-                <h4>FRANCOTIRADOR</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img src="./resources/Clases/ClassIcon-Gunner.webp" />
+                  </picture>
+                  <h4>FRANCOTIRADOR</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-mago">
-              <picture> <img src="./resources/Clases/BARD.jpeg" /> </picture>
-              <div class="div-clase-informacion">
-                <picture>
-                  <img src="./resources/Clases/ClassIcon-Mage.webp" />
-                </picture>
-                <h4>BARDA</h4>
+              <div class="div-mago" id="BARD">
+                <picture> <img src="./resources/Clases/BARD.jpeg" /> </picture>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img src="./resources/Clases/ClassIcon-Mage.webp" />
+                  </picture>
+                  <h4>BARDA</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-mago">
-              <picture>
-                <img src="./resources/Clases/SORCERESS.jpeg" />
-              </picture>
-              <div class="div-clase-informacion">
+              <div class="div-mago" id="SORCERESS">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Mage.webp" />
+                  <img src="./resources/Clases/SORCERESS.jpeg" />
                 </picture>
-                <h4>HECHICERA</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img src="./resources/Clases/ClassIcon-Mage.webp" />
+                  </picture>
+                  <h4>HECHICERA</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-asesino">
-              <picture>
-                <img src="./resources/Clases/SHADOWHUNTER.jpeg" />
-              </picture>
-              <div class="div-clase-informacion">
+              <div class="div-asesino" id="SHADOWHUNTER">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Assassin.webp" />
+                  <img src="./resources/Clases/SHADOWHUNTER.jpeg" />
                 </picture>
-                <h4>CAZASOMBRAS</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img src="./resources/Clases/ClassIcon-Assassin.webp" />
+                  </picture>
+                  <h4>CAZASOMBRAS</h4>
+                </div>
               </div>
-            </div>
 
-            <div class="div-asesino">
-              <picture>
-                <img src="./resources/Clases/DEATHBLADE.jpeg" />
-              </picture>
-              <div class="div-clase-informacion">
+              <div class="div-asesino" id="DEATHBLADE">
                 <picture>
-                  <img src="./resources/Clases/ClassIcon-Assassin.webp" />
+                  <img src="./resources/Clases/DEATHBLADE.jpeg" />
                 </picture>
-                <h4>ESPADA LETAL</h4>
+                <div class="div-clase-informacion">
+                  <picture>
+                    <img src="./resources/Clases/ClassIcon-Assassin.webp" />
+                  </picture>
+                  <h4>ESPADA LETAL</h4>
+                </div>
               </div>
+
+              <script src="./scripts/main.js"></script>
             </div>
           </div>
         </section>
