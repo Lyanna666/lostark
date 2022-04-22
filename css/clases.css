@@ -1,6 +1,7 @@
 .section-clases > div {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: flex-start;
   flex-wrap: wrap;
   margin: 10px;
   margin-top: 0;

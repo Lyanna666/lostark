@@ -1,0 +1,41 @@
+.div-mis-personajes > div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row: 1fr;
+  font-family: 'Montserrat', 'Open sans';
+}
+
+.div-mis-personajes .div-mi-personaje {
+  margin: 5px;
+}
+
+.div-mi-personaje img {
+  max-height: 60px;
+  -webkit-filter: drop-shadow(0px 0px 70px rgb(214, 214, 214));
+  filter: drop-shadow(0px 0px 5px rgb(215, 215, 215));
+
+  margin-bottom: 5px;
+}
+
+.div-mi-personaje h4,
+.div-mi-personaje p {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-weight: 400;
+}
+
+.div-mi-personaje p {
+  font-family: 'Open sans';
+  opacity: 0.8;
+}
+
+.div-mi-personaje button {
+  width: 90%;
+  background-color: transparent;
+  margin-top: 10px;
+  color: white;
+  font-size: 1rem;
+  padding: 5px;
+  border-radius: 10px;
+}

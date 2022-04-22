@@ -64,17 +64,8 @@
   padding-left: 20px;
 }
 
-.div-nuevo-personaje-centro span {
-  display: block;
-  width: 100%;
-  box-shadow: black 0px 0px 10px 0px;
-  background-color: rgba(157, 154, 154, 0.499);
-  padding: 14px;
-  border-radius: 5px;
-  margin: 5px 0 10px;
-  font-size: 1.2rem;
-  font-family: 'Montserrat', 'Open sans';
-  color: rgb(38, 37, 37);
+.div-nuevo-personaje-centro .clase-selecionada {
+  opacity: 0.8;
 }
 
 .div-nuevo-personaje-centro input::placeholder {
