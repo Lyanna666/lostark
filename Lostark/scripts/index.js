@@ -5,6 +5,10 @@ import {
   getPersonaje,
   updatePersonaje,
   getPersonajes,
+  getCalendarios,
+  onGetCalendarios,
+  getEventos,
+  onGetEventos,
 } from './firebase.js';
 
 let editStatus = false;
@@ -29,6 +33,9 @@ const btnDEATHBLADE = document.getElementById('DEATHBLADE');
 const btnSHADOWHUNTER = document.getElementById('SHADOWHUNTER');
 
 const divPersonajes = document.getElementById('div-mis-personajes');
+const h2Personajes = document.getElementById('h2-personajes');
+
+const divCalendarios = document.getElementById('div-calendarios');
 
 const btnCerrar = document.getElementById('cerrar');
 const formCrearPersonaje = document.getElementById('form-crear-personaje');
@@ -51,7 +58,19 @@ btnSORCERESS.onclick = nuevoPersonaje;
 btnSHADOWHUNTER.onclick = nuevoPersonaje;
 btnDEATHBLADE.onclick = nuevoPersonaje;
 btnCerrar.onclick = cerrarNuevoPersonaje;
+h2Personajes.onclick = ocultarPersonajes;
 //***********************
+
+function ocultarPersonajes() {
+  const contenedorPersonajes = document.getElementById(
+    'div-contenedor-personajes',
+  );
+  if (contenedorPersonajes.className == '') {
+    contenedorPersonajes.className = 'oculta';
+  } else {
+    contenedorPersonajes.className = '';
+  }
+}
 
 function nuevoPersonaje() {
   const divNuevoPersonaje = document.getElementById('nuevo-personaje');
@@ -151,6 +170,64 @@ window.addEventListener('DOMContentLoaded', async e => {
           console.log(error);
         }
       });
+    });
+  });
+});
+
+window.addEventListener('DOMContentLoaded', async e => {
+  const querySnapshot = await getCalendarios();
+  querySnapshot.forEach(doc => {
+    console.log(doc.data());
+  });
+
+  onGetCalendarios(querySnapshot => {
+    divCalendarios.innerHTML = '';
+
+    querySnapshot.forEach(doc => {
+      const calendario = doc.data();
+
+      divCalendarios.innerHTML += `
+      <div class="div-calendario">
+       <h3>${calendario.nombre}</h3>
+       <h3>${doc.id}</h3>
+      <button class="btn-delete" data-id="${doc.id}">
+      Eliminar
+      </button>
+      <div id="div-eventos-${doc.id}" class="div-eventos"></div>
+    </div>`;
+    });
+  });
+});
+
+window.addEventListener('DOMContentLoaded', async e => {
+  const querySnapshot = await getEventos();
+  querySnapshot.forEach(doc => {
+    console.log(doc.data());
+  });
+
+  onGetEventos(querySnapshot => {
+    const collectionDivCalendario = document.getElementsByClassName(
+      'div-eventos',
+    );
+    Object.values(collectionDivCalendario).forEach(child => {
+      child.innerHTML = '';
+    });
+
+    querySnapshot.forEach(doc => {
+      const evento = doc.data();
+      const divEvento = document.getElementById(
+        'div-eventos-' + evento.idCalendario,
+      );
+      if (divEvento != null) {
+        divEvento.innerHTML += `
+      <div class="div-evento">
+       <h4>${evento.dia}-${evento.hora}</h4>
+       <h3>${evento.idCalendario}</h3>
+      <button class="btn-delete" data-id="${doc.id}">
+      Eliminar
+      </button>
+    </div>`;
+      }
     });
   });
 });

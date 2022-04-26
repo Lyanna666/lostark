@@ -16,7 +16,9 @@
 .div-nuevo-personaje > div {
   width: 70%;
   height: 80%;
-  background-image: url(../resources/Clases/BERSERKER-background.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   box-shadow: black 0px 0px 10px 0px;
 }
 
@@ -48,6 +50,12 @@
 
 .div-nuevo-personaje {
   font-size: 1.5em;
+}
+
+.img-icono {
+  width: 15%;
+  -webkit-filter: drop-shadow(0px 0px 70px rgb(214, 214, 214));
+  filter: drop-shadow(0px 0px 5px rgb(215, 215, 215));
 }
 
 .div-nuevo-personaje-superior button:hover {

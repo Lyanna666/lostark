@@ -53,16 +53,18 @@ export const db = getFirestore();
  */
 
 //Personajes *****************************
-
 //Get
 export const onGetPersonajes = callback =>
   onSnapshot(collection(db, 'personajes'), callback);
 
 export const getPersonajes = () => getDocs(collection(db, 'personajes'));
 
+export const getPersonaje = idPersonaje =>
+  getDoc(doc(db, 'personajes', idPersonaje));
+
 // Save
 export const savePersonaje = (nombre, clase) =>
-  addDoc(collection(db, 'personajes'), { nombre, clase });
+  addDoc(collection(db, 'personajes'), { nombre, clase, icono: '' });
 
 //Delete
 export const deletePersonaje = idPersonaje =>
@@ -71,9 +73,20 @@ export const deletePersonaje = idPersonaje =>
 //Update
 export const updatePersonaje = (idPersonaje, newFields) =>
   updateDoc(doc(db, 'personajes', idPersonaje), newFields);
+//*****************************
 
-//Get by id
-export const getPersonaje = idPersonaje =>
-  getDoc(doc(db, 'personajes', idPersonaje));
+//Eventos *****************************
+//Get
+export const onGetEventos = callback =>
+  onSnapshot(collection(db, 'eventos'), callback);
 
+export const getEventos = () => getDocs(collection(db, 'eventos'));
+//*****************************
+
+//Calendarios *****************************
+//Get
+export const onGetCalendarios = callback =>
+  onSnapshot(collection(db, 'calendarios'), callback);
+
+export const getCalendarios = () => getDocs(collection(db, 'calendarios'));
 //*****************************
