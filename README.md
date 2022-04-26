@@ -54,8 +54,6 @@ Todos los usuarios pueden ver todos los eventos pero solo pueden modificar o eli
 
 ### Proceso de planificación
 
-- **Diseño:** El diseño presentado a continuación es únicamente una idea muy general del proyecto. A medida que el desarrollo avance el diseño puede cambiar.
+1. **Diseño:** El diseño dibujado es únicamente una idea muy general del proyecto. A medida que el desarrollo avance el diseño puede cambiar.
 
-![Diseño header y footer](./img/header-footer.png)
-![Diseño personajes](./img/personajes.png)
-![Diseño calendario](./img/calendario.png)
+2. **Base de dato:** La base de datos es un base de datos no relacional y ha sido hecha desde Firebase.
