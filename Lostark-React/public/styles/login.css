@@ -1,0 +1,246 @@
+.div-login-registro h1 {
+  text-align: center;
+}
+
+.div-login-registro-contenedor {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  --wrapperWidth: 700px;
+  --wrapperHeight: 400px;
+  --btnWidth: 200px;
+  --btnHeight: 100px;
+  --leftColor: #ffffff;
+  --rightColor: #0e4ceb;
+  font-family: 'Montserrat', 'Open sans';
+}
+
+.div-wrapper {
+  display: flex;
+  width: var(--wrapperWidth);
+  height: var(--wrapperHeight);
+  position: relative;
+}
+
+.div-derecha,
+.div-izquierda {
+  width: 100%;
+  color: black;
+  margin: 40px;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.h2-login,
+.h2-registro {
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Tinos', serif;
+}
+
+.btn-login,
+.btn-registro {
+  display: none;
+}
+
+.btn-login + label,
+.btn-registro + label {
+  position: absolute;
+  content: '';
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.5rem;
+  width: var(--btnWidth);
+  height: var(--btnHeight);
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+  bottom: 4em;
+}
+
+.btn-login + label {
+  right: calc(50% / 2 - var(--btnWidth) / 2);
+}
+
+.btn-registro + label {
+  left: calc(50% / 2 - var(--btnWidth) / 2);
+}
+
+.btn-login + label:before,
+.btn-registro + label:before {
+  position: absolute;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.276);
+  padding-top: calc(var(--btnHeight) / 3);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.btn-login + label:hover:before,
+.btn-registro + label:hover:before {
+  background-color: #ac7d00;
+  color: #000;
+  background-image: linear-gradient(
+    90deg,
+    #d8bd7d,
+    #efd8af,
+    #fcf3ca,
+    #dfb872,
+    #c5a55e
+  );
+}
+
+.btn-login + label:before {
+  content: 'Iniciar sesión';
+}
+
+.btn-registro + label:before {
+  content: '¡Regístrate!';
+}
+
+.form {
+  overflow: hidden;
+  position: absolute;
+  background-image: url(../resources/background-login-registro.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0.5em 2em;
+  height: 400px;
+  width: 340px;
+  transform: translate3d(
+    calc(var(--wrapperWidth) / 10),
+    calc(var(--wrapperHeight) / -10),
+    0
+  );
+  box-shadow: rgb(0, 0, 0) 0px 0px 10px 0px;
+  border-radius: 20px;
+  transition: transform 0.35s ease-in-out;
+}
+
+.form input {
+  height: 44px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 0 1em;
+  font-size: 1em;
+  transition: all 0.5s;
+}
+
+.form input:focus {
+  border-bottom: 1px solid mediumseagreen;
+}
+
+.form label {
+  color: rgb(140, 38, 38);
+}
+
+.formButton {
+  display: none;
+}
+
+.formButton + label {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: 44px;
+  border-radius: 0.25em;
+  background: mediumseagreen;
+  transition: all 0.25s ease-in;
+}
+
+.formButton + label:hover {
+  background: mediumaquamarine;
+}
+
+.formButton + label:before,
+.formButton + label:after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+  color: white;
+  padding-top: 0.85em;
+  transition: transform 0.25s ease-in;
+}
+
+.formButton + label:before {
+  content: 'Registrase';
+}
+
+.formButton + label:after {
+  content: 'Login';
+  transform: translateY(3em);
+}
+
+.fname,
+.email,
+.password,
+.h2-login,
+.h2-registro {
+  transition: all 0.35s ease-out;
+}
+
+.btn-login:checked ~ .form .h2-login {
+  transform: translateY(0em);
+}
+
+.btn-login:checked ~ .form .h2-registro {
+  transform: translateY(-15em);
+}
+
+.btn-registro:checked ~ .form .h2-login {
+  transform: translateY(-15em);
+}
+
+.btn-registro:checked ~ .form .h2-registro {
+  transform: translateY(-2.2em);
+}
+
+.btn-login:checked ~ .form {
+  transform: translate3d(
+    calc(var(--wrapperWidth) / 2.2),
+    calc(var(--wrapperHeight) / -20),
+    0
+  );
+  background-image: url(../resources/background-login-registro.jpeg);
+}
+
+.btn-registro:checked ~ .form {
+  transform: translate3d(
+    calc(var(--wrapperWidth) / 20),
+    calc(var(--wrapperHeight) / -20),
+    0
+  );
+  background-image: url(../resources/background-registro.jpeg);
+}
+
+.btn-login:checked ~ .form .fname {
+  transform: translateY(-15em);
+}
+
+.btn-login:checked ~ .form .formButton + label:before {
+  transform: translateY(-2em);
+}
+
+.btn-login:checked ~ .form .formButton + label:after {
+  transform: translateY(0em);
+}

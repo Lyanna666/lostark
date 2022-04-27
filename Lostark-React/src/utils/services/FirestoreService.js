@@ -1,5 +1,6 @@
-import { db, firebase } from '../firestore';
+import { db } from '../firestore';
 
+// Clases *****************
 function getSubclases() {
   return new Promise((resolve, reject) => {
     db.collection('subclases')
@@ -79,7 +80,7 @@ function DeleteMenuItem(menuItemID) {
   });
 }
 
-//Personajes *****************
+// Personajes *****************
 function getPersonajes() {
   return new Promise((resolve, reject) => {
     db.collection('personajes')
@@ -146,7 +147,6 @@ function deletePersonaje(personajeId) {
       });
   });
 }
-// *****************
 
 export default {
   getSubclases,

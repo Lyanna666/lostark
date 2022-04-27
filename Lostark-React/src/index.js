@@ -12,7 +12,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route exact path="/" element={<Principal />} />
-      <Route exact path="/menu" element={<Menu />} />
+      <Route exact path="/login" element={<Login />} />
       <Route exact path="/dashboard" element={<Dashboard />} />
     </Routes>
   </BrowserRouter>,
