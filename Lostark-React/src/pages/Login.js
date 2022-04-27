@@ -16,9 +16,10 @@ function Login(props) {
     }
   });
 
-  const LoginButtonPressed = e => {
+  const iniciarSesion = e => {
     e.preventDefault();
     const { email, password } = e.target.elements;
+    alert(email.value, password.value);
     firebase
       .auth()
       .signInWithEmailAndPassword(email.value, password.value)
@@ -35,7 +36,7 @@ function Login(props) {
       });
   };
 
-  const LogoutButtonPressed = () => {
+  const cerrarSesion = () => {
     firebase
       .auth()
       .signOut()
@@ -50,85 +51,149 @@ function Login(props) {
       });
   };
 
+  window.onload = function() {
+    const sign_in_btn = document.querySelector('#sign-in-btn');
+    const sign_up_btn = document.querySelector('#sign-up-btn');
+    const container = document.querySelector('.container');
+
+    sign_up_btn.addEventListener('click', () => {
+      container.classList.add('sign-up-mode');
+    });
+
+    sign_in_btn.addEventListener('click', () => {
+      container.classList.remove('sign-up-mode');
+    });
+  };
+
   return (
     <>
       {user === null && (
-        <div class="div-login-registro">
-          <h1>Inicia sesión o regístrate</h1>
-          <div class="div-login-registro-contenedor">
-            <div class="div-wrapper">
-              <div class="div-derecha">
-                <p>¿Todavía no estás registrado?</p>
+        <section class="section-login-registro">
+          <h1>Login / Registro</h1>
+          <div class="container">
+            <div class="forms-container">
+              <div class="signin-signup">
+                <form onSubmit={iniciarSesion} class="sign-in-form">
+                  <h2 class="title">Iniciar sesión</h2>
+                  <div class="input-field">
+                    <i class="fas fa-user" />
+                    <input
+                      type="text"
+                      targert="email"
+                      required
+                      placeholder="Email"
+                      name="email"
+                      id="email"
+                    />
+                  </div>
+                  <div class="input-field">
+                    <i class="fas fa-user" />
+                    <input
+                      targert="password"
+                      type="password"
+                      placeholder="Contraseña"
+                      required
+                      name="password"
+                      id="password"
+                    />
+                  </div>
+                  <input
+                    type="submit"
+                    value="Iniciar Sesión"
+                    class="btn solid"
+                  />
+                  <p class="social-text">
+                    O regístrate con plataformas sociales
+                  </p>
+                  <div class="social-media">
+                    <a href="#" class="social-icon">
+                      <i class="fab fa-facebook-f" />
+                    </a>
+                    <a href="#" class="social-icon">
+                      <i class="fab fa-twitter" />
+                    </a>
+                    <a href="#" class="social-icon">
+                      <i class="fab fa-google" />
+                    </a>
+                    <a href="#" class="social-icon">
+                      <i class="fab fa-linkedin-in" />
+                    </a>
+                  </div>
+                </form>
+                <form action="#" class="sign-up-form">
+                  <h2 class="title">Regístrate</h2>
+                  <div class="input-field">
+                    <i class="fas fa-user" />
+                    <input type="text" placeholder="Usuario" />
+                  </div>
+                  <div class="input-field">
+                    <i class="fas fa-envelope" />
+                    <input type="email" placeholder="Email" />
+                  </div>
+                  <div class="input-field">
+                    <i class="fas fa-lock" />
+                    <input type="password" placeholder="Contraseña" />
+                  </div>
+                  <input type="submit" class="btn" value="Regístrate" />
+                  <p class="social-text">
+                    O regístrate con plataformas sociales
+                  </p>
+                  <div class="social-media">
+                    <a href="#" class="social-icon">
+                      <i class="fab fa-facebook-f" />
+                    </a>
+                    <a href="#" class="social-icon">
+                      <i class="fab fa-twitter" />
+                    </a>
+                    <a href="#" class="social-icon">
+                      <i class="fab fa-google" />
+                    </a>
+                    <a href="#" class="social-icon">
+                      <i class="fab fa-linkedin-in" />
+                    </a>
+                  </div>
+                </form>
               </div>
-              <div class="div-izquierda">
-                <p>Si ya estás registrato, inicia sesión.</p>
+            </div>
+
+            <div class="panels-container">
+              <div class="panel left-panel">
+                <div class="content">
+                  <h3>¿Eres Nuevo?</h3>
+                  <button class="btn transparent" id="sign-up-btn">
+                    Regístrate
+                  </button>
+                </div>
+                <img
+                  src="https://www.thelordoftheguides.com/lost-ark/wp-content/uploads/sites/5/2021/06/Paladin_PortadaGuerrero_Subclases.png"
+                  class="image"
+                  alt=""
+                />
               </div>
-              <input
-                id="btn-registro"
-                class="btn-registro"
-                type="radio"
-                name="btn"
-              />
-              <label for="btn-registro" />
-
-              <input
-                id="btn-login"
-                class="btn-login"
-                type="radio"
-                checked
-                name="btn"
-                noValidate
-                validated={validate}
-                onSubmit={LoginButtonPressed}
-              />
-              <label for="btn-login" />
-
-              <form action="" class="form">
-                <h2 class="h2-login">Login</h2>
-                <h2 class="h2-registro">Registro</h2>
-                <label for="fname" class="fname" />
-                <input
-                  type="text"
-                  id="fname"
-                  class="fname"
-                  placeholder="Nombre"
+              <div class="panel right-panel">
+                <div class="content">
+                  <h3>¿Ya tienes una cuenta?</h3>
+                  <button class="btn transparent" id="sign-in-btn">
+                    Inicia sesión
+                  </button>
+                </div>
+                <img
+                  src="https://hthgaming.com/wp-content/uploads/2022/02/lost-ark-fi10.jpg"
+                  class="image"
+                  alt=""
                 />
-
-                <label for="email" class="email" />
-                <input
-                  type="email"
-                  id="email"
-                  class="email"
-                  placeholder="Email"
-                />
-
-                <label for="password" class="password" />
-                <input
-                  type="password"
-                  id="password"
-                  class="password"
-                  placeholder="Contraseña"
-                />
-                <input type="checkbox" id="formButton" class="formButton" />
-                <label for="formButtom" />
-              </form>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-      {user !== null && (
-        <div style={{ margin: 24 }}>
-          <p>
-            You're loggedin successfully. Go to{' '}
-            <a href="/dashboard">dashboard</a>
-          </p>
-          <p>
-            <a variant="primary" onClick={LogoutButtonPressed}>
-              Click here to Logout
-            </a>
-          </p>
-        </div>
-      )}
+        </section>
+      )}{' '}
+      {
+        <section>
+          <form onSubmit={cerrarSesion}>
+            <button type="submit">Cerrar sesión</button>
+          </form>
+        </section>
+      }
     </>
   );
 }
