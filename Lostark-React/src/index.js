@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Menu from './pages/Menu';
+import Calendario from './pages/Calendario';
 import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
 import Principal from './pages/Principal';
 
 ReactDOM.render(
@@ -13,7 +12,7 @@ ReactDOM.render(
     <Routes>
       <Route exact path="/" element={<Principal />} />
       <Route exact path="/login" element={<Login />} />
-      <Route exact path="/dashboard" element={<Dashboard />} />
+      <Route exact path="/calendario" element={<Calendario />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById('root'),

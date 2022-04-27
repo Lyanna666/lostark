@@ -148,6 +148,20 @@ function deletePersonaje(personajeId) {
   });
 }
 
+// Personajes *****************
+function getCalendarios() {
+  return new Promise((resolve, reject) => {
+    db.collection('calendarios')
+      .get()
+      .then(personajes => {
+        resolve(personajes);
+      })
+      .catch(e => {
+        reject(e);
+      });
+  });
+}
+
 export default {
   getSubclases,
   getAllMenuCategories,
@@ -157,4 +171,5 @@ export default {
   getPersonajes,
   addPersonaje,
   deletePersonaje,
+  getCalendarios,
 };
