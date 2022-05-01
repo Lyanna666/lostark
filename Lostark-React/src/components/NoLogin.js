@@ -3,10 +3,12 @@ import React from 'react';
 function NoLogin(props) {
   return (
     <>
-      <div class="clouds">
-        <h1>No has iniciado sesión</h1>
+      <div class="div-no-login">
+        <h1>🚫 ERROR 🚫</h1>
+        <p>Para poder acceder a la aplicación es necesario estar registrado.</p>
+        <p>Por favor, inicia sesión o regístrate.</p>
+        <a href="/Loading">Ir al login ➤</a>
       </div>
-      <div class="div-no-login" />
     </>
   );
 }

@@ -101,7 +101,7 @@ form.sign-in-form {
 
 .social-icon:hover {
   color: #000;
-  border-color: #4481eb;
+  border: 3px solid #44c767;
 }
 /*Boton Login*/
 .btn {
