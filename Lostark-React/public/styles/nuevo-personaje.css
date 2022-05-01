@@ -33,7 +33,7 @@
   align-items: center;
 }
 
-.div-nuevo-personaje button {
+.div-nuevo-personaje .btn-cerrar {
   text-decoration: none;
   background-color: transparent;
   border: none;
@@ -44,7 +44,7 @@
   padding: 0;
 }
 
-.div-nuevo-personaje-superior button {
+.div-nuevo-personaje-superior .btn-cerrar {
   color: darkred;
 }
 
@@ -74,46 +74,4 @@
 
 .div-nuevo-personaje-centro .clase-selecionada {
   opacity: 0.8;
-}
-
-.div-nuevo-personaje-centro input::placeholder {
-  color: rgb(89, 89, 89);
-}
-
-.div-nuevo-personaje-centro button {
-  text-align: center;
-  width: 100%;
-  margin-top: 50px;
-  padding: 20px;
-  background: linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
-  background-color: #44c767;
-  border: 1px solid #18ab29;
-  cursor: pointer;
-  color: black;
-  border-radius: 20px;
-  font-family: 'Montserrat', 'Open sans';
-  font-size: 1.2rem;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #2f6627;
-  box-shadow: black 0px 0px 10px 0px;
-}
-
-.div-nuevo-personaje-centro button:hover {
-  padding: 20px;
-  background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
-  background-color: #5cbf2a;
-  box-shadow: black 0px 0px 10px 0px;
-  text-shadow: 0 1px #c2ff9c;
-}
-
-.div-nuevo-personaje-centro input {
-  width: 100%;
-  box-shadow: black 0px 0px 10px 0px;
-  background-color: rgba(255, 255, 255, 0.499);
-  padding: 14px;
-  font-family: 'Montserrat', 'Open sans';
-  border-radius: 5px;
-  margin: 5px 0 10px;
-  font-size: 1.2rem;
-  color: black;
 }

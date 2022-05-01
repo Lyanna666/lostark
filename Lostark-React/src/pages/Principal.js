@@ -201,6 +201,7 @@ function Principal(props) {
                     placeholder="Nombre de tu nuevo personaje"
                   />
                   <button
+                    class="btn-verde"
                     type="submit"
                     id="crear-personaje"
                     onClick={() => cerrarNuevoPersonaje()}

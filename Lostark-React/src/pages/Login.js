@@ -94,7 +94,6 @@ function Login(props) {
                 <form onSubmit={iniciarSesion} class="sign-in-form">
                   <h2 class="title">Iniciar sesión</h2>
                   <div class="input-field">
-                    <i class="fas fa-user" />
                     <input
                       type="text"
                       required
@@ -104,7 +103,6 @@ function Login(props) {
                     />
                   </div>
                   <div class="input-field">
-                    <i class="fas fa-user" />
                     <input
                       type="password"
                       placeholder="Contraseña"
@@ -113,11 +111,9 @@ function Login(props) {
                       id="password"
                     />
                   </div>
-                  <input
-                    type="submit"
-                    value="Iniciar Sesión"
-                    class="btn solid"
-                  />
+                  <button class="btn-verde" type="submit">
+                    Iniciar sesion
+                  </button>
                   <p class="social-text">O regístrate con google</p>
                   <div class="social-media">
                     <a href="#" class="social-icon">
@@ -135,18 +131,18 @@ function Login(props) {
                 <form onSubmit={registrarse} class="sign-up-form">
                   <h2 class="title">Regístrate</h2>
                   <div class="input-field">
-                    <i class="fas fa-envelope" />
                     <input type="email" placeholder="Email" id="email" />
                   </div>
                   <div class="input-field">
-                    <i class="fas fa-lock" />
                     <input
                       type="password"
                       placeholder="Contraseña"
                       id="password"
                     />
                   </div>
-                  <input type="submit" class="btn" value="Regístrate" />
+                  <button type="submit" class="btn-verde">
+                    Registrarse
+                  </button>
                   <p class="social-text">
                     O regístrate con plataformas sociales
                   </p>
@@ -167,11 +163,7 @@ function Login(props) {
                     Regístrate
                   </button>
                 </div>
-                <img
-                  src="https://www.thelordoftheguides.com/lost-ark/wp-content/uploads/sites/5/2021/06/Paladin_PortadaGuerrero_Subclases.png"
-                  class="image"
-                  alt=""
-                />
+                <img src="" class="image" alt="" />
               </div>
               <div class="panel right-panel">
                 <div class="content">
@@ -180,11 +172,7 @@ function Login(props) {
                     Inicia sesión
                   </button>
                 </div>
-                <img
-                  src="https://hthgaming.com/wp-content/uploads/2022/02/lost-ark-fi10.jpg"
-                  class="image"
-                  alt=""
-                />
+                <img src="" class="image" alt="" />
               </div>
             </div>
           </div>

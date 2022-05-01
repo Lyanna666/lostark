@@ -148,16 +148,18 @@ function deletePersonaje(personajeId) {
   });
 }
 
-// Personajes *****************
+// Calendarios *****************
 function getCalendarios() {
   return new Promise((resolve, reject) => {
     db.collection('calendarios')
       .get()
-      .then(personajes => {
-        resolve(personajes);
+      .then(calendarios => {
+        resolve(calendarios);
+        console.log('Respuesta calendarios:', calendarios);
       })
       .catch(e => {
         reject(e);
+        console.log('Error calendarios:', e);
       });
   });
 }

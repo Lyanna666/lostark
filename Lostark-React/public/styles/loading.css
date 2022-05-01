@@ -1,0 +1,18 @@
+.div-loading {
+  position: fixed;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('../resources/background-registro.jpeg');
+  background-size: cover;
+  font-family: 'Cabin Condensed', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.div-loading svg {
+  font-weight: bold;
+  max-width: 600px;
+  height: auto;
+}

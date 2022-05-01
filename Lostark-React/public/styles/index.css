@@ -1,5 +1,6 @@
 @import url(./normalice.css);
 @import url(./main.css);
+@import url(./elementos-generales.css);
 @import url(./header.css);
 @import url(./footer.css);
 @import url(./clases.css);
@@ -7,3 +8,5 @@
 @import url(./calendario.css);
 @import url(./mis-personajes.css);
 @import url(./login.css);
+@import url(./loading.css);
+@import url(./no-login.css);

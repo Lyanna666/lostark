@@ -5,3 +5,12 @@
 .div-calendario {
   border: 3px dotted rgb(174, 174, 229);
 }
+
+.div-calendarios table {
+  width: 100%;
+  border: 1px solid lightgreen;
+}
+
+.div-calendarios table td {
+  border: 1px solid lightgreen;
+}
