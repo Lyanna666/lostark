@@ -23,33 +23,40 @@ function Principal(props) {
     }
   });
 
-  useEffect(() => {
+  function fetchPersonajes() {
     setIsLoading(true);
     FirestoreService.getSubclases()
       .then(response => {
         setClases(response._delegate._snapshot.docChanges);
         console.log('Clases:', clases);
 
-        if (firebase.auth().currentUser.uid !== null) {
-          FirestoreService.getPersonajes(firebase.auth().currentUser.uid)
-            .then(response => {
-              setPersonajes(response._delegate._snapshot.docChanges);
-              console.log('Personajes', personajes);
-              setIsLoading(false);
-            })
-            .catch(e => {
-              setIsLoading(false);
-              console.log(response);
-              console.log(personajes);
-              alert('Error al cargar personajes: ' + e);
-            });
-        }
+        FirestoreService.getPersonajes(usuario)
+          .then(response => {
+            setPersonajes(response._delegate._snapshot.docChanges);
+            console.log('Personajes', personajes);
+            setIsLoading(false);
+          })
+          .catch(e => {
+            setIsLoading(false);
+            console.log(response);
+            console.log(personajes);
+            alert('Error al cargar personajes: ' + e);
+          });
       })
       .catch(e => {
         setIsLoading(false);
         alert('Error al cargar las clases: ' + e);
       });
-  }, []);
+  }
+
+  useEffect(
+    () => {
+      if (usuario !== null) {
+        fetchPersonajes();
+      }
+    },
+    [usuario],
+  );
 
   function nuevoPersonaje(clase) {
     const divNuevoPersonaje = document.getElementById('nuevo-personaje');

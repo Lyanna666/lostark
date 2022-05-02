@@ -84,18 +84,18 @@ function DeleteMenuItem(menuItemID) {
 // Personajes *****************
 function getPersonajes(usuario) {
   return new Promise((resolve, reject) => {
-    console.log(usuario);
+    //console.log(usuario);
     db.collection('personajes')
       .orderBy('nombre')
       .where('usuario', '==', usuario)
       .get()
       .then(personajes => {
         resolve(personajes);
-        console.log('Respuesta user:', personajes);
+        //console.log('Respuesta user:', personajes);
       })
       .catch(e => {
         reject(e);
-        console.log('Respuesta user:', e);
+        //console.log('Respuesta user:', e);
       });
   });
 
@@ -133,7 +133,7 @@ function addPersonaje(nombre, clase, icono, usuario) {
       icono: icono,
       usuario: usuario,
     };
-    console.log(data);
+    //console.log(data);
     db.collection('personajes')
       .add(data)
       .then(docRef => {
@@ -159,6 +159,36 @@ function deletePersonaje(personajeId) {
   });
 }
 
+function getPersonaje(id) {
+  return new Promise((resolve, reject) => {
+    //console.log(id);
+    db.collection('personajes')
+      .doc(id)
+      .get()
+      .then(querySnapshot => {
+        resolve(querySnapshot);
+      })
+      .catch(e => {
+        reject(e);
+        //console.log('Respuesta personaje por id:', e);
+      });
+  });
+}
+
+function getTodosPersonajes() {
+  return new Promise((resolve, reject) => {
+    //console.log(id);
+    db.collection('personajes')
+      .get()
+      .then(querySnapshot => {
+        resolve(querySnapshot);
+      })
+      .catch(e => {
+        reject(e);
+      });
+  });
+}
+
 // Calendarios *****************
 function getCalendarios() {
   return new Promise((resolve, reject) => {
@@ -166,11 +196,11 @@ function getCalendarios() {
       .get()
       .then(calendarios => {
         resolve(calendarios);
-        console.log('Respuesta calendarios:', calendarios);
+        //console.log('Respuesta calendarios:', calendarios);
       })
       .catch(e => {
         reject(e);
-        console.log('Error calendarios:', e);
+        //console.log('Error calendarios:', e);
       });
   });
 }
@@ -185,4 +215,6 @@ export default {
   addPersonaje,
   deletePersonaje,
   getCalendarios,
+  getPersonaje,
+  getTodosPersonajes,
 };
