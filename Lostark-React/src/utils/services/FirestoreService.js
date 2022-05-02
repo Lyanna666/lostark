@@ -4,6 +4,7 @@ import { db } from '../firestore';
 function getSubclases() {
   return new Promise((resolve, reject) => {
     db.collection('subclases')
+      .orderBy('clase')
       .get()
       .then(subclases => {
         resolve(subclases);
@@ -81,15 +82,20 @@ function DeleteMenuItem(menuItemID) {
 }
 
 // Personajes *****************
-function getPersonajes() {
+function getPersonajes(usuario) {
   return new Promise((resolve, reject) => {
+    console.log(usuario);
     db.collection('personajes')
+      .orderBy('nombre')
+      .where('usuario', '==', usuario)
       .get()
       .then(personajes => {
         resolve(personajes);
+        console.log('Respuesta user:', personajes);
       })
       .catch(e => {
         reject(e);
+        console.log('Respuesta user:', e);
       });
   });
 
@@ -119,9 +125,14 @@ function getPersonajes() {
   // });
 }
 
-function addPersonaje(nombre, clase, icono) {
+function addPersonaje(nombre, clase, icono, usuario) {
   return new Promise((resolve, reject) => {
-    const data = { nombre: nombre, clase: clase, icono: icono };
+    const data = {
+      nombre: nombre,
+      clase: clase,
+      icono: icono,
+      usuario: usuario,
+    };
     console.log(data);
     db.collection('personajes')
       .add(data)

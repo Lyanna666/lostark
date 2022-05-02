@@ -7,7 +7,7 @@ function NoLogin(props) {
         <h1>🚫 ERROR 🚫</h1>
         <p>Para poder acceder a la aplicación es necesario estar registrado.</p>
         <p>Por favor, inicia sesión o regístrate.</p>
-        <a href="/Loading">Ir al login ➤</a>
+        <a href="/Login">Ir al login ➤</a>
       </div>
     </>
   );

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Spinner } from 'react-bootstrap';
 
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
@@ -18,8 +17,7 @@ function Calendario(props) {
 
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
-      setUsuario(user);
-      console.log('User:', user);
+      setUsuario(user.uid);
       console.log('Usuario', usuario);
     } else {
       setUsuario(null);
