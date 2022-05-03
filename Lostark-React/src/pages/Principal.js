@@ -93,7 +93,6 @@ function Principal(props) {
     const nombre = formCrearPersonaje['nombre'].value;
     const clase = formCrearPersonaje['clase-selecionada'].value;
     const icono = imgIcono.src;
-    alert(nombre + clase);
     FirestoreService.addPersonaje(nombre, clase, icono, usuario)
       .then(() => {
         alert(nombre + ' se ha añadido a tus personajes.');

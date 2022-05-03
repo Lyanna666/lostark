@@ -26,11 +26,11 @@
 }
 
 .div-calendario .div-mis-personajes {
-  width: 15%;
+  width: 12%;
 }
 
 .div-calendario .div-semana {
-  width: 85%;
+  width: 88%;
   font-family: 'Montserrat', 'Open sans';
   display: flex;
   flex-wrap: wrap;
@@ -82,13 +82,8 @@
 }
 
 .div-calendario .div-mi-personaje {
-  cursor: move;
 }
 
-.div-calendario .div-mi-personaje {
-}
-
-.drag-over {
+.div-seleccionado {
   border: 1px solid red;
-  background-color: rgba(255, 0, 0, 0.428);
 }

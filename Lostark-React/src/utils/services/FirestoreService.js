@@ -205,6 +205,26 @@ function getCalendarios() {
   });
 }
 
+// Eventos *****************
+function addEvento(dia, hora, personajes, idCalendario) {
+  return new Promise((resolve, reject) => {
+    const data = {
+      dia: dia,
+      hora: hora,
+      personajes: personajes,
+    };
+    db.collection('calendario')
+      .doc(idCalendario)
+      .add(data)
+      .then(docRef => {
+        resolve(docRef);
+      })
+      .catch(e => {
+        reject(e);
+      });
+  });
+}
+
 export default {
   getSubclases,
   getAllMenuCategories,
@@ -217,4 +237,5 @@ export default {
   getCalendarios,
   getPersonaje,
   getTodosPersonajes,
+  addEvento,
 };

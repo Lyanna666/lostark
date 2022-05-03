@@ -16,7 +16,8 @@ function Calendario(props) {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  //var eventos;
+  let personajesSeleccionados = new Array();
+  let diasSeleccionados = new Array();
 
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -32,10 +33,8 @@ function Calendario(props) {
       .then(response => {
         setPersonajes(response._delegate._snapshot.docChanges);
         //console.log('Personajes', personajes);
-        setIsLoading(false);
       })
       .catch(e => {
-        setIsLoading(false);
         //console.log(e);
         alert('Error al cargar personajes: ' + e);
       });
@@ -47,13 +46,13 @@ function Calendario(props) {
         //setEvento(response._delegate._document.data.value.mapValue.fields);
       })
       .catch(e => {
-        setIsLoading(false);
         //console.log(e);
         alert('Error al cargar personajes: ' + e);
       });
   }
 
   function fetchCalendarios() {
+    setIsLoading(true);
     FirestoreService.getCalendarios()
       .then(response => {
         setCalendarios(response._delegate._snapshot.docChanges);
@@ -70,9 +69,11 @@ function Calendario(props) {
       .then(response => {
         setTodosLosPersonajes(response._delegate._snapshot.docChanges);
         console.log(todosLosPersonajes);
+        setIsLoading(false);
       })
       .catch(e => {
         console.log(e);
+        setIsLoading(false);
         alert('Error al cargar todos los personajes: ' + e);
       });
   }
@@ -155,6 +156,33 @@ function Calendario(props) {
     return html;
   }
 
+  function selecionarPersonaje(personaje) {
+    const idPersonaje =
+      personaje.doc.key.path.segments[
+        personaje.doc.key.path.segments.length - 1
+      ];
+    const divSelecionado = document.getElementById(idPersonaje);
+
+    let personajeEncontrado = false;
+    if (personajesSeleccionados != null) {
+      personajesSeleccionados.forEach(function(currentValue, index, array) {
+        if (currentValue === idPersonaje) {
+          personajeEncontrado = true;
+          divSelecionado.classList.remove('div-seleccionado');
+          array.splice(index, 1);
+        }
+      });
+    } else {
+      divSelecionado.classList.add('div-seleccionado');
+      personajesSeleccionados.push(idPersonaje);
+    }
+    if (!personajeEncontrado) {
+      divSelecionado.classList.add('div-seleccionado');
+      personajesSeleccionados.push(idPersonaje);
+    }
+    console.log(personajesSeleccionados);
+  }
+
   const dibujarSemana = eventos => {
     var html = '<table>';
     const diasSemana = [
@@ -229,19 +257,7 @@ function Calendario(props) {
     );
   };
 
-  window.onload = function() {
-    const tdDia = document.querySelectorAll('.td-dia');
-    const divPersonaje = document.querySelectorAll('.div-mi-personaje');
-
-    tdDia.addEventListener('dragstart', function(event) {
-      event.target.classList.add('drag-over');
-    });
-
-    divPersonaje.addEventListener('dragstart', function(event) {
-      event.target.style.opacity = 0.5;
-      alert('Drag');
-    });
-  };
+  window.onload = function() {};
 
   return (
     <>
@@ -279,8 +295,8 @@ function Calendario(props) {
                     {personajes &&
                       personajes.map((personaje, index) => (
                         <div
-                          draggable="true"
                           class="div-mi-personaje"
+                          onClick={() => selecionarPersonaje(personaje)}
                           id={
                             personaje.doc.key.path.segments[
                               personaje.doc.key.path.segments.length - 1
