@@ -225,6 +225,23 @@ function addEvento(dia, hora, personajes, idCalendario) {
   });
 }
 
+function getEventoPorDia(idCalendario, dia, hora) {
+  return new Promise((resolve, reject) => {
+    //console.log(id);
+    db.collection('calendarios')
+      .doc(idCalendario)
+      .whereField('evento.dia', '==', dia)
+      .whereField('evento.hora', '==', hora)
+      .get()
+      .then(querySnapshot => {
+        resolve(querySnapshot);
+      })
+      .catch(e => {
+        reject(e);
+      });
+  });
+}
+
 export default {
   getSubclases,
   getAllMenuCategories,
@@ -238,4 +255,5 @@ export default {
   getPersonaje,
   getTodosPersonajes,
   addEvento,
+  getEventoPorDia,
 };

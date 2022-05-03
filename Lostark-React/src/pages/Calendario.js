@@ -29,14 +29,15 @@ function Calendario(props) {
   });
 
   function fetchPersonajes() {
+    setIsLoading(true);
     FirestoreService.getPersonajes(usuario)
       .then(response => {
         setPersonajes(response._delegate._snapshot.docChanges);
-        //console.log('Personajes', personajes);
+        setIsLoading(false);
       })
       .catch(e => {
-        //console.log(e);
         alert('Error al cargar personajes: ' + e);
+        setIsLoading(false);
       });
   }
 
@@ -56,15 +57,16 @@ function Calendario(props) {
     FirestoreService.getCalendarios()
       .then(response => {
         setCalendarios(response._delegate._snapshot.docChanges);
-        //console.log('Calendarios:', calendarios);
+        setIsLoading(false);
       })
       .catch(e => {
-        //console.log('Calendarios:', calendarios);
         alert('Error al cargar calendarios: ' + e);
+        setIsLoading(false);
       });
   }
 
   function fetchTodosLosPersonajes() {
+    setIsLoading(true);
     FirestoreService.getTodosPersonajes()
       .then(response => {
         setTodosLosPersonajes(response._delegate._snapshot.docChanges);
@@ -72,9 +74,21 @@ function Calendario(props) {
         setIsLoading(false);
       })
       .catch(e => {
-        console.log(e);
-        setIsLoading(false);
         alert('Error al cargar todos los personajes: ' + e);
+        setIsLoading(false);
+      });
+  }
+
+  function fetchEventos(idCalendario, dia, hora) {
+    setIsLoading(true);
+    FirestoreService.getEventoPorDia(idCalendario, dia, hora)
+      .then(response => {
+        setPersonajes(response._delegate._snapshot.docChanges);
+        setIsLoading(false);
+      })
+      .catch(e => {
+        alert('Error al cargar los eventos: ' + e);
+        setIsLoading(false);
       });
   }
 
@@ -129,7 +143,6 @@ function Calendario(props) {
             personajeGeneral.doc.key.path.segments.length - 1
           ];
         if (personajeGeneralId === personaje.stringValue) {
-          console.log(personajeGeneralId, '--', personaje.stringValue);
           html =
             html +
             '<img src="' +
@@ -181,6 +194,12 @@ function Calendario(props) {
       personajesSeleccionados.push(idPersonaje);
     }
     console.log(personajesSeleccionados);
+  }
+
+  function selecionarDia(tdDia) {
+    console.log('dia selecionado:', tdDia);
+    // const tdSelecionado = document.getElementById(dia + '-' + hora);
+    // tdSelecionado.classList.add('div-selecionado');
   }
 
   const dibujarSemana = eventos => {
@@ -257,7 +276,17 @@ function Calendario(props) {
     );
   };
 
-  window.onload = function() {};
+  window.addEventListener('DOMContentLoaded', function() {
+    // el código que quieres ejecutar
+    const tdDias = Array.from(document.getElementsByClassName('td-dia'));
+
+    console.log('tdDias:', tdDias);
+
+    tdDias.forEach(tdDia => {
+      console.log('tdDia:', tdDia);
+      tdDia.addEventListener('click', selecionarDia(this));
+    });
+  });
 
   return (
     <>
