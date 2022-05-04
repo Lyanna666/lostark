@@ -83,7 +83,7 @@ function Calendario(props) {
     setIsLoading(true);
     FirestoreService.getEventoPorDia(idCalendario, dia, hora)
       .then(response => {
-        setPersonajes(response._delegate._snapshot.docChanges);
+        diasSeleccionados = response._delegate._snapshot.docChanges;
         setIsLoading(false);
       })
       .catch(e => {
@@ -98,10 +98,36 @@ function Calendario(props) {
         fetchCalendarios();
         fetchPersonajes();
         fetchTodosLosPersonajes();
+        domElements();
       }
     },
     [usuario],
   );
+
+  React.useLayoutEffect(() => {
+    domElements();
+  }, []);
+
+  function domElements() {
+    const tdDiasHTMLCollection = document.getElementsByClassName('td-dia');
+
+    console.log(
+      'UseEffects:tdDias:',
+      tdDiasHTMLCollection,
+      '-------',
+      Array.from(tdDiasHTMLCollection),
+    );
+
+    for (let item of tdDiasHTMLCollection) {
+      //console.log('item', item);
+      // item.forEach(function(tdDia) {
+      //console.log('tdDia', tdDia);
+      item.addEventListener('click', function() {
+        selecionarDia(item);
+      });
+      // });
+    }
+  }
 
   function eliminarPersonaje(personaje) {
     const nombrePersonaje =
@@ -196,14 +222,55 @@ function Calendario(props) {
     console.log(personajesSeleccionados);
   }
 
-  function selecionarDia(tdDia) {
-    console.log('dia selecionado:', tdDia);
-    // const tdSelecionado = document.getElementById(dia + '-' + hora);
-    // tdSelecionado.classList.add('div-selecionado');
+  function selecionarDia(item) {
+    console.log('dia selecionado:', item);
+    if (personajesSeleccionados != null) {
+      let dia, hora;
+      const id = item.id;
+      var arrayDiaHora = id.split('-');
+      dia = arrayDiaHora[0];
+      hora = arrayDiaHora[1];
+
+      let nuevosPersonajes = personajesSeleccionados;
+
+      console.log(calendarios);
+
+      const eventos = calendarios[0].doc.data.value.mapValue.fields.evento;
+
+      eventos.arrayValue.values.forEach((evento, index) => {
+        const diaEvento = evento.mapValue.fields.dia.stringValue;
+        const horaEvento = evento.mapValue.fields.hora.stringValue;
+        console.log('Evento:', evento);
+        if (horaEvento == hora && diaEvento == dia) {
+          const personajesEvento =
+            evento.mapValue.fields.personajes.arrayValue.values;
+          console.log(
+            'personajes del evento:',
+            evento.mapValue.fields.personajes,
+          );
+          personajesEvento.forEach((personajeEvento, index) => {
+            const idPersonaje = personajeEvento.stringValue;
+            let personajeEncontrado = false;
+            personajesSeleccionados.forEach((personaje, index) => {
+              if (idPersonaje == personaje) {
+                personajeEncontrado = true;
+              }
+            });
+            if (!personajeEncontrado) {
+              nuevosPersonajes.push(idPersonaje);
+            }
+          });
+        }
+        console.log('personajes del evento:', nuevosPersonajes);
+      });
+
+      console.log(dia, '-', hora, ' ', id);
+    } else {
+      alert('Seleciona primero el/los peronaje/s');
+    }
   }
 
   const dibujarSemana = eventos => {
-    var html = '<table>';
     const diasSemana = [
       'Lunes - 0',
       'Martes - 1',
@@ -214,6 +281,8 @@ function Calendario(props) {
       'Domingo - 6',
     ];
     const horas = ['10:00', '11:00', '12:00', '13:00'];
+
+    var html = '<table>';
     for (var filas = 0; filas < horas.length + 1; filas++) {
       html = html + '<tr>';
       for (var colum = 0; colum < diasSemana.length + 1; colum++) {
@@ -249,9 +318,14 @@ function Calendario(props) {
             }
           });
           if (!eventoPintado) {
+            html = html + '<td';
+
+            // const onClick = <>{() => selecionarDia()} </>;
+            // html = html + onClick;
+
             html =
               html +
-              '<td class="td-dia" id="\'' +
+              ' class="td-dia" id="\'' +
               (colum - 1) +
               '-' +
               (filas - 1) +
@@ -276,17 +350,13 @@ function Calendario(props) {
     );
   };
 
-  window.addEventListener('DOMContentLoaded', function() {
-    // el código que quieres ejecutar
-    const tdDias = Array.from(document.getElementsByClassName('td-dia'));
-
-    console.log('tdDias:', tdDias);
-
-    tdDias.forEach(tdDia => {
-      console.log('tdDia:', tdDia);
-      tdDia.addEventListener('click', selecionarDia(this));
-    });
+  document.addEventListener('componentDidMount', function(event) {
+    //domElements();
   });
+
+  window.onload = function() {
+    domElements();
+  };
 
   return (
     <>

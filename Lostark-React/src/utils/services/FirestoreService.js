@@ -230,8 +230,9 @@ function getEventoPorDia(idCalendario, dia, hora) {
     //console.log(id);
     db.collection('calendarios')
       .doc(idCalendario)
-      .whereField('evento.dia', '==', dia)
-      .whereField('evento.hora', '==', hora)
+      .collection('evento')
+      .where('dia', '==', dia)
+      .where('hora', '==', hora)
       .get()
       .then(querySnapshot => {
         resolve(querySnapshot);
