@@ -177,69 +177,55 @@ function Calendario(props) {
     window.location.reload(false);
   }
 
-  function personajesId(personajesEventos, dia, hora) {
-    let personajePintado = false;
-    personajesEventos.map((personaje, index) => {
-      console.log('Personaje', personaje.stringValue);
-      todosLosPersonajes.map((personajeGeneral, index) => {
-        var personajeGeneralId =
-          personajeGeneral.doc.key.path.segments[
-            personajeGeneral.doc.key.path.segments.length - 1
-          ];
-        if (personajeGeneralId === personaje.stringValue) {
-          console.log('Personaje Igual');
-          personajePintado = true;
-          return (
-            <>
-              <td
-                onClick={() => selecionarDia(this, dia, hora)}
-                class="td-dia"
-                id={dia + '-' + hora}
-              >
-                <div class="div-mi-personaje">
-                  <img
-                    src={
-                      personajeGeneral.doc.data.value.mapValue.fields.icono
-                        .stringValue
-                    }
-                    alt={
-                      personajeGeneral.doc.data.value.mapValue.fields.nombre
-                        .stringValue
-                    }
-                  />
-                  <div class="div-informacion-mi-personaje">
-                    <h4>
-                      {
-                        personajeGeneral.doc.data.value.mapValue.fields.nombre
-                          .stringValue
-                      }
-                    </h4>
-                    <p>
-                      {
-                        personajeGeneral.doc.data.value.mapValue.fields.clase
-                          .stringValue
-                      }
-                    </p>
-                  </div>
-                  <button class="btn-delete">X</button>
-                </div>
-              </td>
-            </>
-          );
-        }
-      });
+  function personajesId(personajeEventoId, dia, hora) {
+    let html = <></>;
+    let tdPersonaje = null;
+    todosLosPersonajes.map((personajeGeneral, index) => {
+      var personajeGeneralId =
+        personajeGeneral.doc.key.path.segments[
+          personajeGeneral.doc.key.path.segments.length - 1
+        ];
+      if (personajeGeneralId === personajeEventoId) {
+        console.log('Personaje Igual');
+        html = (
+          <td id={dia + '-' + hora} class="td-dia">
+            <div class="div-mi-personaje">
+              <img
+                src={
+                  personajeGeneral.doc.data.value.mapValue.fields.icono
+                    .stringValue
+                }
+                alt={
+                  personajeGeneral.doc.data.value.mapValue.fields.nombre
+                    .stringValue
+                }
+              />
+              <div class="div-informacion-mi-personaje">
+                <h4>
+                  {
+                    personajeGeneral.doc.data.value.mapValue.fields.nombre
+                      .stringValue
+                  }
+                </h4>
+                <p>
+                  {
+                    personajeGeneral.doc.data.value.mapValue.fields.clase
+                      .stringValue
+                  }
+                </p>
+              </div>
+              <button class="btn-delete">X</button>
+            </div>
+          </td>
+        );
+
+        tdPersonaje = document.createElement('td');
+        tdPersonaje.id = dia + '-' + hora;
+        tdPersonaje.classList.add('td-dia');
+        tdPersonaje.innerHTML = html;
+      }
     });
-    if (!personajePintado) {
-      return (
-        <>
-          <td
-            onClick={() => selecionarDia(this, dia, hora)}
-            class="td-dia"
-            id={dia + '-' + hora}
-          />
-        </>
-      );
-    }
+    return html;
   }
 
   function selecionarPersonaje(personaje) {
@@ -316,69 +302,6 @@ function Calendario(props) {
       alert('Seleciona primero el/los peronaje/s');
     }
   }
-
-  const dibujarSemanaBien = eventos => {
-    const diasSemana = [
-      'Lunes - 0',
-      'Martes - 1',
-      'Miércoles - 2',
-      'Jueves - 3',
-      'Viernes - 4',
-      'Sábado - 5',
-      'Domingo - 6',
-    ];
-    const horas = ['10:00', '11:00', '12:00', '13:00'];
-
-    let html = (
-      <>
-        <table>
-          {horas.map((hora, indexHora) => (
-            <tr>
-              {diasSemana.map((dia, indexDia) => {
-                (() => {
-                  if (hora === 0 && dia === 0) {
-                    return <th class="th-hora">Hola</th>;
-                  } else if (hora === 0) {
-                    return <th class="th-dia">{dia}</th>;
-                  } else if (dia === 0) {
-                    return <th class="th-hora">{hora}</th>;
-                  } else if (
-                    eventos.arrayValue.values != null &&
-                    eventos.arrayValue.values.length > 0
-                  ) {
-                    var eventoPintado = false;
-                    eventos.arrayValue.values.forEach((evento, index) => {
-                      const diaEvento = evento.mapValue.fields.dia.stringValue;
-                      const horaEvento =
-                        evento.mapValue.fields.hora.stringValue;
-                      var personajes =
-                        evento.mapValue.fields.personajes.arrayValue.values;
-                      if (diaEvento == dia && horaEvento == hora) {
-                        return (
-                          <td
-                            onClick={() => selecionarDia(this, dia, hora)}
-                            class="td-dia"
-                            id={dia + '-' + hora}
-                          >
-                            {personajesId(personajes)}
-                          </td>
-                        );
-                      }
-                    });
-                    if (!eventoPintado) {
-                      return <td class="td-dia" id={dia + '-' + hora} />;
-                    }
-                  } else {
-                    return <td class="td-dia" id={dia + '-' + hora} />;
-                  }
-                })();
-              })}
-            </tr>
-          ))}
-        </table>
-      </>
-    );
-  };
 
   document.addEventListener('componentDidMount', function(event) {
     //domElements();
@@ -489,6 +412,7 @@ function Calendario(props) {
                                   .arrayValue.values.length > 0
                               ) {
                                 var eventoPintado = false;
+                                let htmlPersonajes = null;
                                 calendario.doc.data.value.mapValue.fields.evento.arrayValue.values.forEach(
                                   (evento, index) => {
                                     const diaEvento =
@@ -506,34 +430,14 @@ function Calendario(props) {
                                       //personajesId(personajes, dia, hora);
                                       console.log('Evento', dia, hora);
                                       personajesEventos.map(
-                                        (personaje, index) =>
-                                          todosLosPersonajes.map(
-                                            (personajeGeneral, index) => {
-                                              let personajeGeneralId =
-                                                personajeGeneral.doc.key.path
-                                                  .segments[
-                                                  personajeGeneral.doc.key.path
-                                                    .segments.length - 1
-                                                ];
-                                              if (
-                                                personajeGeneralId ===
-                                                personaje.stringValue
-                                              ) {
-                                                console.log(
-                                                  'Personaje Igual',
-                                                  dia,
-                                                  hora,
-                                                );
-                                                eventoPintado = true;
-
-                                                return (
-                                                  <td>
-                                                    <h1>Ejemplo!!</h1>{' '}
-                                                  </td>
-                                                );
-                                              }
-                                            },
-                                          ),
+                                        (personaje, indexPersopnaje) => {
+                                          eventoPintado = true;
+                                          htmlPersonajes = personajesId(
+                                            personaje.stringValue,
+                                            indexDia,
+                                            indexHora,
+                                          );
+                                        },
                                       );
                                     }
                                   },
@@ -545,6 +449,8 @@ function Calendario(props) {
                                       id={indexDia + '-' + indexHora}
                                     />
                                   );
+                                } else {
+                                  return htmlPersonajes;
                                 }
                               } else {
                                 return (
