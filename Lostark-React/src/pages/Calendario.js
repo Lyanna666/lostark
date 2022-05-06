@@ -188,35 +188,33 @@ function Calendario(props) {
       if (personajeGeneralId === personajeEventoId) {
         console.log('Personaje Igual');
         html = (
-          <td id={dia + '-' + hora} class="td-dia">
-            <div class="div-mi-personaje">
-              <img
-                src={
-                  personajeGeneral.doc.data.value.mapValue.fields.icono
-                    .stringValue
-                }
-                alt={
+          <div class="div-mi-personaje">
+            <img
+              src={
+                personajeGeneral.doc.data.value.mapValue.fields.icono
+                  .stringValue
+              }
+              alt={
+                personajeGeneral.doc.data.value.mapValue.fields.nombre
+                  .stringValue
+              }
+            />
+            <div class="div-informacion-mi-personaje">
+              <h4>
+                {
                   personajeGeneral.doc.data.value.mapValue.fields.nombre
                     .stringValue
                 }
-              />
-              <div class="div-informacion-mi-personaje">
-                <h4>
-                  {
-                    personajeGeneral.doc.data.value.mapValue.fields.nombre
-                      .stringValue
-                  }
-                </h4>
-                <p>
-                  {
-                    personajeGeneral.doc.data.value.mapValue.fields.clase
-                      .stringValue
-                  }
-                </p>
-              </div>
-              <button class="btn-delete">X</button>
+              </h4>
+              <p>
+                {
+                  personajeGeneral.doc.data.value.mapValue.fields.clase
+                    .stringValue
+                }
+              </p>
             </div>
-          </td>
+            <button class="btn-delete">X</button>
+          </div>
         );
 
         tdPersonaje = document.createElement('td');
@@ -412,7 +410,7 @@ function Calendario(props) {
                                   .arrayValue.values.length > 0
                               ) {
                                 var eventoPintado = false;
-                                let htmlPersonajes = null;
+                                let htmlPersonajes = [];
                                 calendario.doc.data.value.mapValue.fields.evento.arrayValue.values.forEach(
                                   (evento, index) => {
                                     const diaEvento =
@@ -432,10 +430,12 @@ function Calendario(props) {
                                       personajesEventos.map(
                                         (personaje, indexPersopnaje) => {
                                           eventoPintado = true;
-                                          htmlPersonajes = personajesId(
-                                            personaje.stringValue,
-                                            indexDia,
-                                            indexHora,
+                                          htmlPersonajes.push(
+                                            personajesId(
+                                              personaje.stringValue,
+                                              indexDia,
+                                              indexHora,
+                                            ),
                                           );
                                         },
                                       );
@@ -450,7 +450,15 @@ function Calendario(props) {
                                     />
                                   );
                                 } else {
-                                  return htmlPersonajes;
+                                  console.log(htmlPersonajes);
+                                  return (
+                                    <td
+                                      class="td-dia"
+                                      id={indexDia + '-' + indexHora}
+                                    >
+                                      {htmlPersonajes}
+                                    </td>
+                                  );
                                 }
                               } else {
                                 return (

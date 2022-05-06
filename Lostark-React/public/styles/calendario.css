@@ -60,13 +60,13 @@
   background-color: rgba(255, 255, 255, 0.055);
   box-shadow: rgb(0, 0, 0) 0px 0px 10px 0px;
   vertical-align: top;
+  padding-bottom: 20px;
   height: 10vh;
 }
 
 .div-calendario table .div-mi-personaje {
   font-size: 0.7rem;
   padding: 2px;
-  margin: 0;
 }
 
 .div-calendario table .div-mi-personaje img {
