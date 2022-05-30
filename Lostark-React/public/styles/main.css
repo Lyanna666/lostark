@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --greyNavigation: #b5b5b5;
+  --yellow: #eac04b;
+}
+
+body {
+  margin: 0;
+  color: white;
+  font-family: 'Tinos', serif;
+  font-weight: 400;
+}
+
+main section .oculta {
+  display: none;
+}
+
+h1,
+h2,
+h3 {
+  text-shadow: black 0px 0px 3px, black 0px 0px 6px, black 0px 0px 6px;
+}
+
+h1,
+h2 {
+  font-weight: 400;
+  width: 100%;
+  border-bottom: 1px solid var(--yellow);
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+.fondo {
+  background-image: url(../resources/smoke-center-SM.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+picture {
+  display: block;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.contenedor {
+  max-width: 1800px;
+  margin: auto;
+}
+
+section {
+  text-align: center;
+}
+
+section h2 {
+  margin-bottom: 0;
+}
+
+section picture {
+  width: 100%;
+  margin: auto;
+}
+
+section img {
+  margin: auto;
+}
+
+input {
+  width: 100%;
+  box-shadow: black 0px 0px 10px 0px;
+  background-color: rgba(255, 255, 255, 0.499);
+  padding: 14px;
+  font-family: 'Montserrat', 'Open sans';
+  border-radius: 5px;
+  margin: 5px 0 10px;
+  font-size: 1.2rem;
+  color: black;
+}
+
+input::placeholder {
+  color: rgb(84, 84, 84);
+}
+
+.btn-verde {
+  text-align: center;
+  width: 100%;
+  margin-top: 50px;
+  padding: 20px;
+  background: linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+  background-color: #44c767;
+  border: 1px solid #18ab29;
+  cursor: pointer;
+  color: black;
+  border-radius: 20px;
+  font-family: 'Montserrat', 'Open sans';
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+  box-shadow: black 0px 0px 10px 0px;
+}
+
+.btn-verde:hover {
+  padding: 20px;
+  background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+  background-color: #5cbf2a;
+  box-shadow: black 0px 0px 10px 0px;
+  text-shadow: 0 1px #c2ff9c;
+}

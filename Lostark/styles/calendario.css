@@ -1,0 +1,13 @@
+.div-calendarios {
+  border: 1px solid lightpink;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.div-calendario {
+  border: 1px solid darkblue;
+  background-color: aquamarine;
+  width: 70%;
+}

@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --greyNavigation: #b5b5b5;
+  --yellow: #eac04b;
+}
+
+body {
+  margin: 0;
+  color: white;
+  font-family: 'Tinos', serif;
+  font-weight: 400;
+}
+
+main section .oculta {
+  display: none;
+}
+
+h1,
+h2,
+h3 {
+  text-shadow: black 0px 0px 3px, black 0px 0px 6px, black 0px 0px 6px;
+}
+
+h1,
+h2 {
+  font-weight: 400;
+  width: 100%;
+  border-bottom: 1px solid var(--yellow);
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+.fondo {
+  background-image: url(../resources/smoke-center-SM.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+picture {
+  display: block;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.contenedor {
+  max-width: 1800px;
+  margin: auto;
+}
+
+section {
+  text-align: center;
+}
+
+section h2 {
+  margin-bottom: 0;
+}
+
+section picture {
+  width: 100%;
+  margin: auto;
+}
+
+section img {
+  margin: auto;
+}

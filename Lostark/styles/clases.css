@@ -1,0 +1,160 @@
+.section-clases > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 10px;
+  margin-top: 0;
+  background-color: rgba(0, 0, 0, 0.499);
+  box-shadow: rgb(0, 0, 0) 0px 0px 10px 0px;
+}
+
+/* Títilos */
+
+.section-clases h2 {
+  width: 100%;
+  font-size: 2em;
+}
+
+.section-clases h4 {
+  width: 100%;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.section-clases h3 {
+  font-weight: 400;
+  width: 100%;
+  font-size: 1.5em;
+  margin: 20px;
+}
+
+/* Layout mis personajes */
+.div-mis-personajes {
+  width: 20%;
+  text-align: center;
+}
+
+.div-mis-personajes h3 {
+  width: 100%;
+}
+
+.div-personajes {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Layout clases */
+
+.div-clases {
+  width: 80%;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.div-clases div {
+  width: 12.5%;
+  padding: 5px;
+}
+
+.div-clases picture {
+  width: 100%;
+  box-shadow: black 0px 0px 10px 0px;
+}
+
+.div-clases img {
+  object-fit: cover;
+  object-position: top;
+  height: 100%;
+  width: 100%;
+}
+
+.div-clases .div-clase-informacion picture {
+  width: 100%;
+}
+
+.div-clases .div-clase-informacion picture {
+  box-shadow: black 0px 0px 0px 0px;
+  width: 20%;
+}
+
+.div-clases .div-clase-informacion {
+  width: 100%;
+  margin-bottom: 10px;
+  border-top: 1px solid black;
+}
+
+/* Colores segun tipo de personaje */
+
+.div-clases .div-guerrero .div-clase-informacion {
+  background-image: radial-gradient(
+    110% 120px at 50% 0px,
+    rgb(28, 85, 162),
+    transparent 50%
+  );
+  opacity: 0.6;
+}
+
+.div-clases .div-artista .div-clase-informacion {
+  background-image: radial-gradient(
+    110% 120px at 50% 0px,
+    rgb(6, 124, 124),
+    transparent 50%
+  );
+  opacity: 0.6;
+}
+
+.div-clases .div-mago .div-clase-informacion {
+  background-image: radial-gradient(
+    110% 120px at 50% 0px,
+    rgb(181, 36, 36),
+    transparent 50%
+  );
+  opacity: 0.6;
+}
+
+.div-clases .div-artillero .div-clase-informacion {
+  background-image: radial-gradient(
+    110% 120px at 50% 0px,
+    rgb(177, 97, 3),
+    transparent 50%
+  );
+  opacity: 0.6;
+}
+
+.div-clases .div-asesino .div-clase-informacion {
+  background-image: radial-gradient(
+    110% 120px at 50% 0px,
+    rgb(175, 36, 175),
+    transparent 50%
+  );
+  opacity: 0.6;
+}
+
+/* Cambios hover */
+
+.div-clases > div:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.757);
+  box-shadow: black 0px 0px 10px 0px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.div-clases > div:hover .div-clase-informacion {
+  opacity: 0.9;
+}
+
+.div-clases > div:hover h4 {
+  font-weight: 700;
+}
+
+.div-clases > div:active {
+  box-shadow: black 0px 0px 5px 5px;
+  z-index: 1;
+}

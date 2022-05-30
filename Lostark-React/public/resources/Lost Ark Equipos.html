@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Aplicación para la formación de equipos del juego Lost Ark"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@300;400;800&family=Oswald:wght@700&family=Tinos:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="./styles/index.css" />
+
+    <title>Lost Ark Equipos</title>
+  <script defer src="/static/js/bundle.js"></script></head>
+  <body>
+    <header>
+      <div class="contenedor">
+        <picture>
+          <source
+            media="(max-width: 780px)"
+            srcset="./resources/logo-small.png"
+          />
+          <img src="./resources/logo-big.png" alt="Logo de Lostark" />
+        </picture>
+        <nav>
+          <ul>
+            <li><a href="/calendario">CALENDARIO</a></li>
+            <li><a href="/">PERSONAJES</a></li>
+            <li><a href="">EQUIPOS</a></li>
+            <li><a class="perfil" href="/login">PERFIL</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+      <main>
+      <div class="fondo"></div>
+      <div class="contenedor">
+    <div id="root"></div>
+    </div>
+  </body>
+</html>

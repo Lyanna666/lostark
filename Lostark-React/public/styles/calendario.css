@@ -1,0 +1,89 @@
+.div-calendario {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.499);
+  box-shadow: rgb(0, 0, 0) 0px 0px 10px 0px;
+}
+
+.div-calendario h2,
+.div-calendario h3,
+.div-calendarios h1 {
+  text-align: center;
+  width: 100%;
+}
+.div-calendarios h1 {
+  margin-bottom: 0;
+}
+
+.div-calendarios h2 {
+  border: none;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.055);
+  box-shadow: rgb(0, 0, 0) 0px 0px 10px 0px;
+}
+
+.div-calendario .div-mis-personajes {
+  width: 12%;
+}
+
+.div-calendario .div-semana {
+  width: 88%;
+  font-family: 'Montserrat', 'Open sans';
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.div-semana table {
+  table-layout: fixed;
+  text-align: center;
+  height: 100%;
+  margin: 0;
+}
+
+.div-semana .th-dia {
+  height: 20px;
+}
+
+.div-semana .th-hora {
+  vertical-align: top;
+  width: 5%;
+}
+
+.div-calendarios table {
+  width: 100%;
+}
+
+.div-calendarios table td {
+  background-color: rgba(255, 255, 255, 0.055);
+  box-shadow: rgb(0, 0, 0) 0px 0px 10px 0px;
+  vertical-align: top;
+  padding-bottom: 20px;
+  height: 10vh;
+}
+
+.div-calendario table .div-mi-personaje {
+  font-size: 0.7rem;
+  padding: 2px;
+}
+
+.div-calendario table .div-mi-personaje img {
+  padding: 0;
+  margin: 1px;
+  width: 20%;
+}
+
+.div-calendario table.div-mi-personaje h4,
+.div-calendario table.div-mi-personaje p {
+  font-weight: 400;
+  margin: 0;
+}
+
+.div-calendario .div-mi-personaje {
+}
+
+.div-seleccionado {
+  border: 1px solid red;
+}

@@ -1,0 +1,60 @@
+.div-mis-personajes {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-row: 1fr;
+}
+
+.div-mi-personaje {
+  text-align: left;
+  margin: 5px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.055);
+  font-family: 'Montserrat', 'Open sans';
+  box-shadow: rgb(0, 0, 0) 0px 0px 10px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.div-mi-personaje img {
+  width: 30%;
+  -webkit-filter: drop-shadow(0px 0px 70px rgb(214, 214, 214));
+  filter: drop-shadow(0px 0px 5px rgb(215, 215, 215));
+  padding: 15px;
+  margin: 0;
+}
+
+.div-mi-personaje .div-informacion-mi-personaje {
+  width: 60%;
+  margin: 0;
+}
+
+.div-mi-personaje h4,
+.div-mi-personaje p {
+  font-weight: 400;
+  margin: 5px;
+}
+z .div-mi-personaje p {
+  font-family: 'Open sans';
+  opacity: 0.8;
+}
+
+.div-mi-personaje button {
+  text-align: center;
+  align-self: flex-start;
+  width: 10%;
+  background-color: transparent;
+  margin: 0;
+  color: darkred;
+  cursor: pointer;
+  margin-top: 0;
+  font-size: 1.3rem;
+  border: none;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+.div-mi-personaje button:hover {
+  color: red;
+  font-size: 1.5rem;
+}
